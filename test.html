@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golf Haven - Thế Giới Golf</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #a8e063 0%, #56ab2f 100%);
+        }
+        header, footer {
+            background-color: #004225;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #006837;
+        }
+        nav a {
+            color: white;
+            padding: 15px 20px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            background-color: #004225;
+        }
+        .container {
+            padding: 20px;
+        }
+        .product-card {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            overflow: hidden;
+            margin: 20px;
+            width: calc(33% - 40px);
+            float: left;
+            transition: transform 0.3s;
+        }
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+        .product-card img {
+            width: 100%;
+            height: auto;
+        }
+        .product-card h3 {
+            margin: 0;
+            padding: 15px;
+            text-align: center;
+            background-color: #004225;
+            color: white;
+        }
+        .product-card p {
+            padding: 10px 15px;
+            text-align: justify;
+        }
+        .price {
+            color: #d32f2f;
+            font-weight: bold;
+        }
+        .promo {
+            color: #388e3c;
+            font-weight: bold;
+        }
+        #home, #products, #prices, #promotions {
+            margin-bottom: 40px;
+        }
+        .cart {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #004225;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .cart-modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            z-index: 10;
+        }
+        .cart-modal h3 {
+            margin-top: 0;
+        }
+        .cart-items {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .menu ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 15px;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .menu a:hover {
+            color: #e91e63;
+        }
+    </style>
+    </style>
+    <!DOCTYPE html>
+    <html lang="vi">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Golf Store - Trang Chủ</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header>
+            <h1>Golf Store</h1>
+            <nav>
+                <div class="menu">
+                <ul>
+                   <li><a href="index.html">Trang Chủ</a></li>
+                   <li><a href="gioithieu.html">Giới Thiệu</a></li>
+                    <li><a href="sanpham.html">Sản Phẩm</a></li>
+                    <li><a href="giohang.html">Giỏ Hàng <span id="cart-count">0</span></a></li>
+                    <li><a href="khuyenmai.html">Khuyến Mãi</a></li>
+                    <li><a href="hinhanh.html">Hình Ảnh</a></li>
+                </ul>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <section id="hero">
+                <h2>Chào mừng đến với Golf Store!</h2>
+                <p>Chúng tôi cung cấp các thiết bị golf tốt nhất với giá cả hợp lý.</p>
+            </section>
+            <section id="products">
+                <h2>Sản Phẩm Nổi Bật</h2>
+                <div class="product-item">
+                    <img src="b/f.jpg" alt="Sản Phẩm 1">
+                    <h3>Thảm tập Swing Golf PGM DJD002</h3>
+                    <p>Giá: $150</p>
+                    <button onclick="addToCart('product1', 'Tên Sản Phẩm 1', 150)">Thêm vào Giỏ</button>
+                </div>
+                <div class="product-item">
+                    <img src="b/njj.webp" alt="Sản Phẩm 2">
+                    <h3>Bóng golf Titleist Pro V1 - Hộp 12 quả</h3>
+                    <p>Giá: $100</p>
+                    <button onclick="addToCart('product2', 'Tên Sản Phẩm 2', 100)">Thêm vào Giỏ</button>
+                </div>
+                <!-- Thêm các sản phẩm khác tại đây -->
+            </section>
+        </section>
+        <section id="cart">
+            <div class="cart" onclick="toggleCart()">Giỏ hàng</div>
+            <div class="cart-modal" id="cart-modal">
+                <h3>Giỏ hàng của bạn</h3>
+                <div class="cart-items" id="cart-items"></div>
+                <p>Tổng cộng: $<span id="cart-total">0</span></p>
+                <button onclick="toggleCart()">Đóng</button>
+                <button onclick="clearCart()">Hủy Đơn Hàng</button>
+                <button onclick="buyItems()">Mua</button>
+            </div>
+        </section>
+            <section id="contact">
+                <h2>Liên Hệ</h2>
+                <p>Địa chỉ: 83/86 đường về nhà em, Quận 2, TP. Hồ Chí Minh</p>
+                <p>Số điện thoại: 0977-778-386</p>
+                <p>Email: GolfStore@gmail.com</p>
+            </section>
