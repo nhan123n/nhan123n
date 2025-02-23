@@ -1,0 +1,91 @@
+<html>
+    <head>
+        <style type="text/css">
+            body {
+                color: white;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin: 0;
+                min-height: 100vh;
+                background-image: 
+                url(https://photo.znews.vn/w1920/Uploaded/yqdxwpjwq/2021_01_26/Hibbett.jpg);
+                background-repeat: no-repeat;
+                background-size: 100%;
+                background-position: center;
+            }
+            .menu {
+                margin-top: 20px;
+            }
+            .menu a {
+                font-variant: small-caps;
+                color: white;
+                text-decoration: none;
+                margin: 0 15px;
+                font-weight: bold;
+            }
+            .menu a:hover {
+                color: aqua;
+            }
+            .form-container {
+                width: 320px;
+                padding: 20px;
+                background: rgba(255, 255, 255, 0.1); /* Làm trong suốt nhẹ */
+                border-radius: 10px;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+                text-align: center;
+                backdrop-filter: blur(10px);
+                margin-top: 50px; /* Đẩy form xuống dưới menu */
+            }
+            .form-control {
+                padding: 10px;
+                width: 90%;
+                outline: none;
+                border: 1px solid gray;
+                border-radius: 5px;
+            }
+            .form-group label {
+                font-weight: bold;
+            }
+            .form-button {
+                padding: 8px 30px;
+                outline: none;
+                border: none;
+                border-radius: 20px;
+                font-weight: bold;
+                background-color: white;
+                color: orangered;
+                box-shadow: inset 0 0 20px red;
+                cursor: pointer;
+                margin: 5px;
+            }
+            .form-button:hover {
+                color: lightskyblue;
+                box-shadow: inset 0 0 20px orangered;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="menu">
+            <a href="asm.html">Trang chủ</a>
+            <a href="sneacker.html">Sneacker</a>
+            <a href="sanphamkhac.html">Sản phẩm khác</a>
+            <a href="dichvu.html">Dịch vụ</a>
+        </div>
+        <form class="form-container">
+            <div class="form-group"> 
+                <label>Email/SĐT:</label><br>
+                <input class="form-control" type="text" placeholder="Nhập vào email/SĐT"><br>
+            </div>
+            <div class="form-group">
+                <label>Mật khẩu:</label><br>
+                <input class="form-control" type="password" placeholder="Nhập mật khẩu"><br>
+            </div>
+            <br>
+            <div>
+                <button class="form-button">Đăng ký</button>
+                <button class="form-button" type="reset">Nhập lại</button>
+            </div>
+        </form>
+    </body>
+</html>
